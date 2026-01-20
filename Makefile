@@ -1,7 +1,7 @@
 obj-m += nct6687.o
 
 curpwd      := $(shell pwd)
-kver        ?= $(shell uname -r)
+kver        ?= $(ls -1 /usr/lib/modules/ | head -n1)
 commitcount := $(shell git rev-list --all --count 2>/dev/null)
 commithash  := $(shell git rev-parse --short HEAD 2>/dev/null)
 fedoraver   := $(shell sed -n 's/.*Fedora release \([^ ]*\).*/\1/p' /etc/fedora-release 2>/dev/null || echo 0)
